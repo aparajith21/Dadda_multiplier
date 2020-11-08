@@ -258,18 +258,15 @@ module dadda_multiplier(a, b, y);
     full_adder E02 (p[10][1], p[11][0], tce[1], ts2[14], tc5[22]);
 
     compressor  c208 (ts1[16], ts1[17], ts1[18], tc2[6], tc5[20], ts2[15], tc5[23], tc5[24]); //4
-    // full_adder f203 (p[12][0], tc5[21], tc5[22], ts2[16], tc5[25]); error fixing
     full_adder f203 (p[12][0], tc5[21], tc5[22], tse[2], tce[2]);//error adding
     half_adder EE0 (tse[2], tc2[7], ts2[16], tc5[25]); //error fixing
 
     compressor  c209 (ts1[19], ts1[20], ts1[21], tc2[8], tc5[23], ts2[17], tc5[26], tc5[27]); //4
-    // full_adder f204 (p[13][0], tc5[24], tc5[25], ts2[18], tc5[28]); error fixing
     full_adder f204 (p[13][0], tc5[24], tc5[25], tse[3], tce[4]); //error adding
     half_adder HE0 (tse[3], tce[2], ts2[18], tc5[28]); //added due to error
 
     compressor  c210 (ts1[22], ts1[23], ts1[24], tc2[9], tc5[26], ts2[19], tc5[29], tc5[30]); //4
     full_adder E204 (p[14][0], tc5[27], tc5[28], ts2[20], tc5[31]);
-    // half_adder h204 (ts2[20], tc2[10], ts2[21], tc5[32]);
     full_adder FE0 (ts2[20], tc2[10], tce[4], ts2[21], tc5[32]);
 
     assign ts2[22] = 0;
