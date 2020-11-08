@@ -134,9 +134,7 @@ module dadda_multiplier(a, b, y);
 
     full_adder f07 (p[7][15], p[8][14], tc1[30], ts0[32], tc0[19]); //9
 
-    assign tc1[31] = 0;
-
-    half_adder h07 (p[8][15], tc1[31], ts0[33], tc0[20]); //8 here
+    half_adder h07 (p[8][15], 1'b0, ts0[33], tc0[20]); //8 here
 
     //level 2
 
@@ -254,7 +252,6 @@ module dadda_multiplier(a, b, y);
 
 
     compressor  c207 (ts1[14], ts1[15], tc2[5], tc5[18], tc5[19], ts2[13], tc5[20], tc5[21]); //4
-    // half_adder h203 (p[10][1], p[11][0], ts2[14], tc5[22]); error
     full_adder E02 (p[10][1], p[11][0], tce[1], ts2[14], tc5[22]);
 
     compressor  c208 (ts1[16], ts1[17], ts1[18], tc2[6], tc5[20], ts2[15], tc5[23], tc5[24]); //4
@@ -269,7 +266,6 @@ module dadda_multiplier(a, b, y);
     full_adder E204 (p[14][0], tc5[27], tc5[28], ts2[20], tc5[31]);
     full_adder FE0 (ts2[20], tc2[10], tce[4], ts2[21], tc5[32]);
 
-    assign ts2[22] = 0;
 
     compressor c211 (ts1[25], ts1[26], ts1[27], tc2[11], tc5[29], ts2[23], tc5[33], tc5[34]); //4
     compressor c212 (p[15][0], tc5[30], tc5[31], tc5[32], tc2[12], ts2[24], tc5[35], tc5[36]);
