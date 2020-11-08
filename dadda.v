@@ -83,7 +83,13 @@ module dadda_multiplier(a, b, y);
 
     //level 1
 
-    wire [100:0] ts0, ts1, ts2, tc0, tc1, tc2, tc3, tc4, tc5, tse, tce;
+    wire [33:0] ts0;
+    wire [20:0] tc0;
+    wire [30:0] tc1, tc2;
+    wire [53:0] ts1, ts2;
+    wire [52:0] tc3;
+    wire [90:0] tc5;
+    wire [3:0] tse, tce;
 
     half_adder h00 (p[0][8], p[1][7], ts0[0], tc1[0]); //9
 
@@ -259,12 +265,12 @@ module dadda_multiplier(a, b, y);
     half_adder EE0 (tse[2], tc2[7], ts2[16], tc5[25]); //error fixing
 
     compressor  c209 (ts1[19], ts1[20], ts1[21], tc2[8], tc5[23], ts2[17], tc5[26], tc5[27]); //4
-    full_adder f204 (p[13][0], tc5[24], tc5[25], tse[3], tce[4]); //error adding
+    full_adder f204 (p[13][0], tc5[24], tc5[25], tse[3], tce[3]); //error adding
     half_adder HE0 (tse[3], tce[2], ts2[18], tc5[28]); //added due to error
 
     compressor  c210 (ts1[22], ts1[23], ts1[24], tc2[9], tc5[26], ts2[19], tc5[29], tc5[30]); //4
     full_adder E204 (p[14][0], tc5[27], tc5[28], ts2[20], tc5[31]);
-    full_adder FE0 (ts2[20], tc2[10], tce[4], ts2[21], tc5[32]);
+    full_adder FE0 (ts2[20], tc2[10], tce[3], ts2[21], tc5[32]);
 
 
     compressor c211 (ts1[25], ts1[26], ts1[27], tc2[11], tc5[29], ts2[23], tc5[33], tc5[34]); //4
