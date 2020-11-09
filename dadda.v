@@ -1,3 +1,9 @@
+//
+//  dadda.v
+//
+//
+//  Created by Aparajith Raghuvir on 04/11/20.
+//
 `include "cla.v"
 
 module compressor(x1, x2, x3, x4, cin, s, c, cout);
